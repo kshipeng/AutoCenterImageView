@@ -91,8 +91,16 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     SPCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"SPCELL" forIndexPath:indexPath];
+    NSInteger indx = 0;
     cell.imageView.image = _placeImage;
-    
+    if (self.dataSource.count) {
+        if (self.dataSource.count < self.numberOfItemsInLine || self.dataSource.count == self.numberOfItemsInLine) {
+            indx = indexPath.row;
+        }else {
+            indx = indexPath.section * self.numberOfItemsInLine + indexPath.row;
+        }
+    }
+    //[_coverImageView sd_setImageWithURL:[NSURL URLWithString:self.dataSource[indx]] placeholderImage:_placeImage];
     return cell;
 }
 
