@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     SPAutoCentreView *view = [[SPAutoCentreView alloc]initWithFrame:CGRectMake(0, 200, self.view.frame.size.width, 200) placeholderImage:[UIImage imageNamed:@"1.jpg"]];
-    view.dataSource = @[@"",@"",@"",@"",@""];
+    view.dataSource = @[@"",@"",@"",@""];
     view.itemSpacing = 40;
     view.numberOfItemsInLine = 3;
     view.delegate = self;

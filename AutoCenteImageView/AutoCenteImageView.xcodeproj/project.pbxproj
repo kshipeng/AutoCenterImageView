@@ -14,6 +14,7 @@
 		3D714B291D88FA6500182C89 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D714B281D88FA6500182C89 /* Assets.xcassets */; };
 		3D714B2C1D88FA6500182C89 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D714B2A1D88FA6500182C89 /* LaunchScreen.storyboard */; };
 		3D714B351D88FA7500182C89 /* SPAutoCentreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D714B341D88FA7500182C89 /* SPAutoCentreView.m */; };
+		3D714B371D88FB0900182C89 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3D714B361D88FB0900182C89 /* 1.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		3D714B2D1D88FA6500182C89 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D714B331D88FA7500182C89 /* SPAutoCentreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPAutoCentreView.h; sourceTree = "<group>"; };
 		3D714B341D88FA7500182C89 /* SPAutoCentreView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPAutoCentreView.m; sourceTree = "<group>"; };
+		3D714B361D88FB0900182C89 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				3D714B231D88FA6500182C89 /* ViewController.m */,
 				3D714B331D88FA7500182C89 /* SPAutoCentreView.h */,
 				3D714B341D88FA7500182C89 /* SPAutoCentreView.m */,
+				3D714B361D88FB0900182C89 /* 1.jpg */,
 				3D714B251D88FA6500182C89 /* Main.storyboard */,
 				3D714B281D88FA6500182C89 /* Assets.xcassets */,
 				3D714B2A1D88FA6500182C89 /* LaunchScreen.storyboard */,
@@ -142,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D714B2C1D88FA6500182C89 /* LaunchScreen.storyboard in Resources */,
+				3D714B371D88FB0900182C89 /* 1.jpg in Resources */,
 				3D714B291D88FA6500182C89 /* Assets.xcassets in Resources */,
 				3D714B271D88FA6500182C89 /* Main.storyboard in Resources */,
 			);
@@ -308,6 +312,7 @@
 				3D714B321D88FA6500182C89 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
