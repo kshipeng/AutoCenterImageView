@@ -19,9 +19,10 @@
     [super viewDidLoad];
     SPAutoCentreView *view = [[SPAutoCentreView alloc]initWithFrame:CGRectMake(0, 200, self.view.frame.size.width, 200) placeholderImage:[UIImage imageNamed:@"1.jpg"]];
     view.dataSource = @[@"https://s3.amazonaws.com/fast-image-cache/demo-images/FICDDemoImage000.jpg",@"https://s3.amazonaws.com/fast-image-cache/demo-images/FICDDemoImage001.jpg",@"https://s3.amazonaws.com/fast-image-cache/demo-images/FICDDemoImage002.jpg",@"https://s3.amazonaws.com/fast-image-cache/demo-images/FICDDemoImage003.jpg"];
-    view.itemSpacing = 40;
+    view.itemSpacing = 20;
     view.numberOfItemsInLine = 3;
     view.delegate = self;
+    view.itemSize = CGSizeMake(60, 60);
     [view sp_autoCenterViewDidSelectItemAtIndexPath:^(NSInteger index) {
         NSLog(@"block>>%ld",index);
         
