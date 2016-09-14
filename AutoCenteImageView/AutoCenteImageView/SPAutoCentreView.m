@@ -7,6 +7,7 @@
 //
 
 #import "SPAutoCentreView.h"
+#import "UIImageView+WebCache.h"
 
 #define SPW self.bounds.size.width
 #define SPH self.bounds.size.height
@@ -99,7 +100,7 @@
         }else {
             indx = indexPath.section * self.numberOfItemsInLine + indexPath.row;
         }
-         //[_coverImageView sd_setImageWithURL:[NSURL URLWithString:self.dataSource[indx]] placeholderImage:_placeImage];
+        [cell.imageView sd_setImageWithURL:[NSURL URLWithString:self.dataSource[indx]] placeholderImage:_placeImage];
     }
    
     return cell;
@@ -183,6 +184,8 @@
     if (self = [super initWithFrame:frame]) {
         _imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height)];
         _imageView.backgroundColor = [UIColor yellowColor];
+        _imageView.layer.masksToBounds = YES;
+        _imageView.layer.cornerRadius = self.bounds.size.width/2;
         [self.contentView addSubview:_imageView];
     }
     return self;
