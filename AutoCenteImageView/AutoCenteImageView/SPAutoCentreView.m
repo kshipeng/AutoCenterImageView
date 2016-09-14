@@ -98,13 +98,13 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSInteger indx = 0;
-    if (_delegate && [_delegate respondsToSelector:@selector(sp_autoCenterViewDidSelectItemAtIndexPath:)]) {
-        if (self.dataSource.count < self.numberOfItemsInLine || self.dataSource.count == self.numberOfItemsInLine) {
-            indx = indexPath.row;
-        }else {
-            indx = indexPath.section * self.numberOfItemsInLine + indexPath.row;
-        }
+    if (self.dataSource.count < self.numberOfItemsInLine || self.dataSource.count == self.numberOfItemsInLine) {
+        indx = indexPath.row;
+    }else {
+        indx = indexPath.section * self.numberOfItemsInLine + indexPath.row;
+    }
 
+    if (_delegate && [_delegate respondsToSelector:@selector(sp_autoCenterViewDidSelectItemAtIndexPath:)]) {
         [_delegate sp_autoCenterViewDidSelectItemAtIndexPath:indx];
     }
     
