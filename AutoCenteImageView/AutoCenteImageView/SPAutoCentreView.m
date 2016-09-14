@@ -45,6 +45,7 @@
     return self;
 }
 
+#pragma mark - 📚集合视图代理方法
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     NSInteger num = 1;
     if (self.dataSource.count < self.numberOfItemsInLine || self.dataSource.count == self.numberOfItemsInLine) {
@@ -60,7 +61,7 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    NSInteger num = 1;
+    NSInteger num = 0;
     if (self.dataSource.count < self.numberOfItemsInLine || self.dataSource.count == self.numberOfItemsInLine) {
         return self.dataSource.count;
     }
@@ -77,7 +78,6 @@
 }
 
 
-#pragma mark - 📚集合视图代理方法
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     return self.itemSize;
 }
