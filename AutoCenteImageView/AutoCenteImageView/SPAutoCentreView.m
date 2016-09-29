@@ -27,6 +27,7 @@
 - (instancetype)initWithFrame:(CGRect)frame placeholderImage:(UIImage *)image{
     if (self = [super initWithFrame:frame]) {
         
+        _autoCenter = YES;
         _insets = UIEdgeInsetsMake(10, 10, 10, 10);
         _itemSize = CGSizeMake(50, 50);
         _numberOfItemsInLine = 5;
@@ -49,6 +50,9 @@
 #pragma mark - 📚集合视图代理方法
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     NSInteger num = 1;
+    if (!_autoCenter) {
+        return 1;
+    }
     if (self.dataSource.count < self.numberOfItemsInLine || self.dataSource.count == self.numberOfItemsInLine) {
         return 1;
     }
@@ -63,6 +67,9 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     NSInteger num = 0;
+    if (!_autoCenter) {
+        return self.dataSource.count;
+    }
     if (self.dataSource.count < self.numberOfItemsInLine || self.dataSource.count == self.numberOfItemsInLine) {
         return self.dataSource.count;
     }
@@ -83,6 +90,9 @@
     return self.itemSize;
 }
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+    if (!_autoCenter) {
+        return _edgeInsets;
+    }
     if (section != _allSection - 1 || self.dataSource.count % self.numberOfItemsInLine == 0) {
         return self.insets;
     }else {
@@ -108,10 +118,15 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSInteger indx = 0;
-    if (self.dataSource.count < self.numberOfItemsInLine || self.dataSource.count == self.numberOfItemsInLine) {
-        indx = indexPath.row;
+    
+    if (!_autoCenter) {
+        if (self.dataSource.count < self.numberOfItemsInLine || self.dataSource.count == self.numberOfItemsInLine) {
+            indx = indexPath.row;
+        }else {
+            indx = indexPath.section * self.numberOfItemsInLine + indexPath.row;
+        }
     }else {
-        indx = indexPath.section * self.numberOfItemsInLine + indexPath.row;
+        indx = indexPath.row;
     }
 
     if (_delegate && [_delegate respondsToSelector:@selector(sp_autoCenterViewDidSelectItemAtIndexPath:)]) {
@@ -146,6 +161,16 @@
     [self confige];
 }
 
+- (void)setAutoCenter:(BOOL)autoCenter {
+    _autoCenter = autoCenter;
+    [self confige];
+}
+
+- (void)setEdgeInsets:(UIEdgeInsets)edgeInsets {
+    _edgeInsets = edgeInsets;
+    [self confige];
+}
+
 - (void)confige {
     CGFloat top = 10, left = 10, bottom = 10, right = 10;
     if (self.dataSource.count < self.numberOfItemsInLine || self.dataSource.count == self.numberOfItemsInLine) {
@@ -165,6 +190,7 @@
     }
     
     self.insets = UIEdgeInsetsMake(top, left, bottom, right);
+    
     [_mainCollectionView reloadData];
 }
 

@@ -27,6 +27,11 @@
  *  item大小
  */
 @property (nonatomic, assign) CGSize itemSize;
+
+/**
+ *  设置边距
+ */
+@property (nonatomic, assign) UIEdgeInsets edgeInsets;
 /**
  *  一行显示几个
  */
@@ -35,6 +40,11 @@
  *  item之间的间距
  */
 @property (nonatomic, assign) CGFloat itemSpacing;
+
+/**
+ *  是否居中显示(默认居中显示)
+ */
+@property (nonatomic, assign) BOOL autoCenter;
 /**
  *  初始化方法
  *
